@@ -1,16 +1,36 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bokemonunite</title>
+    <title>ボケ問UNITE</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag('w-favicon.ico') %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script type="text/javascript" src="//jpostal-1006.appspot.com/jquery.jpostal.js"></script>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="d-flex flex-column">
+    <!-- ヘッダー -->
+    <div class="fixed-top">
+      <%= render 'layouts/header' %>
+    </div>
+    <!-- フラッシュメッセージ -->
+    <div class="p-3">
+      <%= render 'layouts/flash' %>
+    </div>
+    <main class="pt-5 pb-5 h-auto">
+      <%= yield %>
+    </main>
+    <!-- フッター -->
+    <%= render 'layouts/footer' %>
+    <!-- ページ上部に戻るボタン -->
+    <span id="back">
+      <a href="#">
+        <i class="fas fa-chevron-circle-left fa-rotate-90" style="color: #8ab1f5;"></i>
+      </a>
+    </span>
   </body>
+
 </html>
