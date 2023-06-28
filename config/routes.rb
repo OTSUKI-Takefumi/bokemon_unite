@@ -17,6 +17,9 @@ Rails.application.routes.draw do
     get 'homes/show'
     get 'homes/edit'
   end
+  scope module: :public do
+    root to: "homes#top"
+  end
   namespace :admin do
     get 'passwords/new'
     get 'passwords/index'
@@ -29,6 +32,7 @@ Rails.application.routes.draw do
     get 'results/show'
     get 'results/edit'
   end
+
   namespace :admin do
     get 'homes/new'
     get 'homes/index'
